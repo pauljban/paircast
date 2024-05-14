@@ -46,7 +46,6 @@ function WeatherDisplay() {
     return (
         <>
             <div>
-                <h1>Paircast</h1>
                 <input
                     type="text"
                     value={city}
