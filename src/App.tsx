@@ -7,10 +7,12 @@ function App() {
 
   return (
     <>
-      <h1>Paircast</h1>
-      <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-        <WeatherDisplay />
-        <WeatherDisplay />
+      <div className="p-4">
+        <h1 className="text-center text-3xl font-bold mb-8">Paircast</h1>
+        <div className="flex justify-around items-start">
+          <WeatherDisplay />
+          <WeatherDisplay />
+        </div>
       </div>
 
     </>

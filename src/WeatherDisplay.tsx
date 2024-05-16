@@ -45,26 +45,29 @@ function WeatherDisplay() {
 
     return (
         <>
-            <div>
+            <div className="border-2 p-4">
                 <input
+                    className="border-2 p-2 w-full mb-2"
                     type="text"
                     value={city}
                     onChange={e => setCity(e.target.value)}
                     placeholder="Enter city name"
                 />
-                <button className="border-black text-4xl border-4" onClick={fetchWeather}>Get Weather</button>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-full mb-4" onClick={fetchWeather}>Get Weather</button>
+                <div>
+                    {weather && weather.main ? (
+                        <>
+                            <h2>{weather.name}</h2>
+                            <p>Temperature: {weather.main.temp}°C</p>
+                            <p>Weather: {weather.weather[0].description}</p>
+                        </>
+                    ) : (
+                        <p>No weather data</p>
+                    )}
+                </div>
+
             </div>
-            <div>
-                {weather && weather.main ? (
-                    <>
-                        <h2>{weather.name}</h2>
-                        <p>Temperature: {weather.main.temp}°C</p>
-                        <p>Weather: {weather.weather[0].description}</p>
-                    </>
-                ) : (
-                    <p>No weather data</p>
-                )}
-            </div>
+
 
         </>
     )
