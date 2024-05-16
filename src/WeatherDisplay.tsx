@@ -45,15 +45,15 @@ function WeatherDisplay() {
 
     return (
         <>
-            <div className="border-2 p-4">
+            <div className="border-2 p-4 bg-white bg-opacity-50 rounded-lg">
                 <input
-                    className="border-2 p-2 w-full mb-2"
+                    className="border-2 p-2 w-full mb-2 rounded-lg"
                     type="text"
                     value={city}
                     onChange={e => setCity(e.target.value)}
                     placeholder="Enter city name"
                 />
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-full mb-4" onClick={fetchWeather}>Get Weather</button>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-full mb-4 rounded-lg" onClick={fetchWeather}>Get Weather</button>
                 <div>
                     {weather && weather.main ? (
                         <>
