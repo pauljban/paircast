@@ -18,7 +18,7 @@ function WeatherDisplay() {
     // State to hold the weather data
     const [weather, setWeather] = useState<Weather | null>(null);
 
-    const API_KEY = '';
+    const API_KEY = import.meta.env.VITE_API_KEY;
 
     // Function to fetch weather data
     const fetchWeather = async () => {
