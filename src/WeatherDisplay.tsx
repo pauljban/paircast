@@ -94,6 +94,10 @@ function WeatherDisplay() {
                             <p>Temperature: {weather.main.temp}°C</p>
                             <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt="" />
                             <p>Weather: {weather.weather[0].description}</p>
+                            <p>Feels like: {weather.main.feels_like}°C</p>
+                            <p>Min: {weather.main.temp_min}</p>
+                            <p>Max: {weather.main.temp_max}</p>
+                            <p>Humidity: {weather.main.humidity}</p>
                         </>
                     ) : (
                         <p>No weather data</p>
