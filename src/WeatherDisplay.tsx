@@ -75,6 +75,11 @@ function WeatherDisplay() {
         }
     };
 
+    // Helper function to format Unix timestamp to a readable date
+    const formatDate = (unixTimestamp: number) => {
+        const date = new Date(unixTimestamp * 1000);
+        return date.toLocaleString(); // Customize format as needed
+    };
 
     return (
         <>
@@ -98,6 +103,7 @@ function WeatherDisplay() {
                             <p>Min: {weather.main.temp_min}</p>
                             <p>Max: {weather.main.temp_max}</p>
                             <p>Humidity: {weather.main.humidity}</p>
+                            <p>Last updated: {formatDate(weather.dt)} </p>
                         </>
                     ) : (
                         <p>No weather data</p>
