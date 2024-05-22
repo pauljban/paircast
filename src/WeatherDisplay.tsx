@@ -96,7 +96,7 @@ function WeatherDisplay() {
                     {weather && weather.main ? (
                         <>
                             <h2>{weather.name}</h2>
-                            <p>Temperature: {weather.main.temp}°C</p>
+                            <p className="text-xl font-bold">{weather.main.temp}°C</p>
                             <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt="" />
                             <p>Weather: {weather.weather[0].description}</p>
                             <p>Feels like: {weather.main.feels_like}°C</p>
@@ -104,6 +104,8 @@ function WeatherDisplay() {
                             <p>Max: {weather.main.temp_max}</p>
                             <p>Humidity: {weather.main.humidity}</p>
                             <p>Last updated: {formatDate(weather.dt)} </p>
+                            <p>Sunrise: {formatDate(weather.sys.sunrise)}</p>
+                            <p>Sunset: {formatDate(weather.sys.sunset)}</p>
                         </>
                     ) : (
                         <p>No weather data</p>
