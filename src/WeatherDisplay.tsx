@@ -78,7 +78,15 @@ function WeatherDisplay() {
     // Helper function to format Unix timestamp to a readable date
     const formatDate = (unixTimestamp: number) => {
         const date = new Date(unixTimestamp * 1000);
-        return date.toLocaleString(); // Customize format as needed
+        // Format the time as hour and minute. Adjust 'en-US' to locale if needed.
+        const timeString = date.toLocaleTimeString('en-US', {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: true, // Set to false if you want 24-hour format
+        });
+
+        return timeString;
+
     };
 
     return (
