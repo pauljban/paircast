@@ -91,7 +91,7 @@ function WeatherDisplay() {
 
     return (
         <>
-            <div className="border-2 p-4 bg-white bg-opacity-50 rounded-lg">
+            <div className="border-2 p-4 bg-white bg-opacity-60 rounded-lg">
                 <input
                     className="border-2 p-2 w-full mb-2 rounded-lg"
                     type="text"
@@ -104,29 +104,29 @@ function WeatherDisplay() {
                     {weather && weather.main ? (
                         <div className="flex flex-col items-center space-y-4">
                             <p>{weather.name}</p>
-                            <h2 className="text-xl font-bold">{weather.main.temp}°C</h2>
-                            <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt="" />
+                            <h2 className="text-4xl font-bold">{weather.main.temp}°C</h2>
+                            <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt="{weather.weather[0].description}" className="w-32 h-32" />
                             <p>{weather.weather[0].description}</p>
                             <p>Feels like: {weather.main.feels_like}°C</p>
                             <p>Humidity: {weather.main.humidity}%</p>
                             <div className="flex justify-between w-full px-10">
                                 <div>
-                                    <p>Min: {weather.main.temp_min}</p>
-                                    <p>Max: {weather.main.temp_max}</p>
+                                    <p className="text-sm">Min: {weather.main.temp_min}°C</p>
+                                    <p className="text-sm">Max: {weather.main.temp_max}°C</p>
                                 </div>
                                 <div>
-                                    <p>Sunrise: {formatDate(weather.sys.sunrise)}</p>
-                                    <p>Sunset: {formatDate(weather.sys.sunset)}</p>
+                                    <p className="text-sm">Sunrise: {formatDate(weather.sys.sunrise)}</p>
+                                    <p className="text-sm">Sunset: {formatDate(weather.sys.sunset)}</p>
                                 </div>
                             </div>
 
 
-                            <p>Last updated: {formatDate(weather.dt)} </p>
+                            <p className="pt-4 text-xs self-start">Last updated: {formatDate(weather.dt)} </p>
 
                         </div>
 
                     ) : (
-                        <p>No weather data</p>
+                        <p className="text-center">No weather data</p>
                     )}
                 </div>
 
