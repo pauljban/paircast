@@ -102,19 +102,29 @@ function WeatherDisplay() {
                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-full mb-4 rounded-lg" onClick={fetchWeather}>Get Weather</button>
                 <div>
                     {weather && weather.main ? (
-                        <>
-                            <h2>{weather.name}</h2>
-                            <p className="text-xl font-bold">{weather.main.temp}°C</p>
+                        <div className="flex flex-col items-center space-y-4">
+                            <p>{weather.name}</p>
+                            <h2 className="text-xl font-bold">{weather.main.temp}°C</h2>
                             <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt="" />
-                            <p>Weather: {weather.weather[0].description}</p>
+                            <p>{weather.weather[0].description}</p>
                             <p>Feels like: {weather.main.feels_like}°C</p>
-                            <p>Min: {weather.main.temp_min}</p>
-                            <p>Max: {weather.main.temp_max}</p>
-                            <p>Humidity: {weather.main.humidity}</p>
+                            <p>Humidity: {weather.main.humidity}%</p>
+                            <div className="flex justify-between w-full px-10">
+                                <div>
+                                    <p>Min: {weather.main.temp_min}</p>
+                                    <p>Max: {weather.main.temp_max}</p>
+                                </div>
+                                <div>
+                                    <p>Sunrise: {formatDate(weather.sys.sunrise)}</p>
+                                    <p>Sunset: {formatDate(weather.sys.sunset)}</p>
+                                </div>
+                            </div>
+
+
                             <p>Last updated: {formatDate(weather.dt)} </p>
-                            <p>Sunrise: {formatDate(weather.sys.sunrise)}</p>
-                            <p>Sunset: {formatDate(weather.sys.sunset)}</p>
-                        </>
+
+                        </div>
+
                     ) : (
                         <p>No weather data</p>
                     )}
